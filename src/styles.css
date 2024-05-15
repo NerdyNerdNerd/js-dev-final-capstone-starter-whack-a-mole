@@ -40,8 +40,8 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  cursor: url('../assets/golfClub.png'), pointer;
-  /*cursor: url('./assets/mallet.png'), pointer;*/
+  /* cursor: url('../assets/golfClub.png') pointer; */
+  cursor: url('../assets/club2.png'), pointer;
 }
 
 .hole {
