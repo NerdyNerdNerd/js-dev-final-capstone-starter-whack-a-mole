@@ -2,8 +2,12 @@ const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
-const score; // Use querySelector() to get the score element
-const timerDisplay; // use querySelector() to get the timer element.
+const score = document.querySelector('#score'); // Use querySelector() to get the score element
+const timerDisplay = document,querySelector('#timer'); // use querySelector() to get the timer element.
+
+//add the audio elements
+const gameAudio = document.getElementById('gameAudio');
+const audioHit = document.getElementById('gopherHit');
 
 let time = 0;
 let timer;
@@ -21,7 +25,7 @@ let difficulty = "hard";
  *
  */
 function randomInteger(min, max) {
-  // return Math.floor(Math.random() * (max - min + 1)) + min;
+   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -41,7 +45,22 @@ function randomInteger(min, max) {
  */
 function setDelay(difficulty) {
   // TODO: Write your code here.
-  
+  let delay = null;
+  switch (difficulty) {
+    case "easy":
+      delay = 1000;
+      break;
+    case "normal":
+      delay = 1500;
+      break;
+    case "hard":
+      delay = randomInteger(600, 1200);
+      break;
+    default:
+      delay = 1500;
+      break;
+  }
+  return delay;
 }
 
 /**
@@ -98,8 +117,8 @@ function gameOver() {
 *
 */
 function showUp() {
-  let delay = 0; // TODO: Update so that it uses setDelay()
-  const hole = 0;  // TODO: Update so that it use chooseHole()
+  let delay = setDelay(difficulty); // TODO: Update so that it uses setDelay()
+  const hole = chooseHole(holes);  // TODO: Update so that it use chooseHole()
   return showAndHide(hole, delay);
 }
 
