@@ -291,6 +291,7 @@ function stopGame(){
 *
 */
 function startGame(){
+  gameAudio.play();
   setDuration(19);
   clearInterval(timer);
   timer = null;
